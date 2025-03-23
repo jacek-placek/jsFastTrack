@@ -69,15 +69,42 @@ let givenValue = prompt("Enter a number:");
 let secondsInHour = 0;
 let secondsInDay = 0;
 let secondsInMonth = 0;
+// let monthLength = 30;
+let currentMonthLength = 0;
 
-function secondsCalculator(factor) {
-    secondsInHour = factor * 60 * 60;
-    secondsInDay = factor * 8 * 60 * 60;
-    secondsInMonth = factor * 30 * 8 * 60 * 60;
+function getCurrentMonthDays(callback) {
+    const now = new Date();
+    const month = now.getMonth();
+    const year = now.getFullYear();
+    const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+        daysInMonth[1] = 29;
+    }
+
+    currentMonthLength = daysInMonth[month];
+
+    const monthName = new Date(year, month).toLocaleDateString('default', {month: 'long'});
+
+    console.log(`Current Month: ${monthName}`);
+    
+    callback();
+
 }
 
-secondsCalculator(givenValue)
+function secondsCalculator(factor) {
+    const numMonthLength = Number(currentMonthLength);
+    console.log(numMonthLength);
 
-alert(`There are ${secondsInHour} seconds in ${givenValue} hours`);
-alert(`There are ${secondsInDay} seconds in ${givenValue} days`);
-alert(`There are ${secondsInMonth} seconds in ${givenValue} months`);
+    secondsInHour = factor * 60 * 60;
+    secondsInDay = factor * 8 * 60 * 60;
+    secondsInMonth = factor * numMonthLength * 8 * 60 * 60;
+
+    alert(`There are ${secondsInHour} seconds in ${givenValue} hours`);
+    alert(`There are ${secondsInDay} seconds in ${givenValue} days`);
+    alert(`There are ${secondsInMonth} seconds in ${givenValue} months`);
+}
+
+getCurrentMonthDays(() => {
+    secondsCalculator(givenValue)
+})
