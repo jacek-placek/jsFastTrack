@@ -14,7 +14,7 @@ a = b;
 
 alert('new values: a = ' + a + ', b = ' + b);
 
-// task no_color. 4
+// task no. 4
 const obj = {
     string: 'a string in the object',
     num: 753,
