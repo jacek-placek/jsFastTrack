@@ -94,12 +94,12 @@ console.log(triangleArea(dimA, dimB, dimC));
 
 // check if a triangle is rectangular
 
-let dims = [dimA, dimB, dimC].sort((x, y) => x - y);
-let [x, y, z] = dims;
+let dims = [dimA, dimB, dimC].sort((d, e) => d - e);
+let [d, e, f] = dims;
 
 //console.log(dims);
  
-if(Math.abs(z ** 2 - (x ** 2 + y ** 2)) < 1e-10){
+if(Math.abs(f ** 2 - (d ** 2 + e ** 2)) < 1e-10){
     console.log('This triangle is rectangular');
 }else{
     console.log('This triangle is not rectangular')
