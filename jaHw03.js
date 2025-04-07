@@ -1,4 +1,3 @@
-/*
 // Task no. 1 *********************************************************************************
 
 const arr = [2, 3, 4, 5];
@@ -44,7 +43,7 @@ function randArray(a){
 
 randArray(5);
 
-console.log(randArr);*/
+console.log(randArr);
 
 // Task no. 4 **************************************************************************************
 
@@ -116,3 +115,18 @@ function lastEelement(arr, count) {
 console.log(lastEelement([3, 4, 10, -5]));
 console.log(lastEelement([3, 4, 10, -5], 2));
 console.log(lastEelement([3, 4, 10, -5], 8));
+
+// Task no 8 **********************************************************************************************
+
+let input = 'i love java script';
+
+function convertToUpperCase(str) {
+    return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+let output = convertToUpperCase(input);
+
+console.log(output);
