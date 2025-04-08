@@ -26,7 +26,7 @@ console.log(typeof res4);
 
 // task 2 **********************************************************************************************************
 
-let userNumber = prompt('Enter a number');
+let userNumber = prompt('Enter a number'); //can be transformed to number by: +prompt
 
 if(userNumber >= 0 && userNumber % 2  === 0){
     console.log('Entered number is positive and even');
@@ -48,11 +48,12 @@ newArr[0] = 5;
 newArr[1] = "A string";
 newArr[2] = true;
 newArr[3] = null;
+//could be done: newArr.push(5, 'A string', true, null)
 
 console.log(newArr);
 console.log(newArr.length);
 
-newArr[4] = prompt("Enter any cahracter");
+newArr[4] = prompt("Enter any character");
 
 console.log(newArr[4]);
 
@@ -67,13 +68,16 @@ const cities = ["Rome", "Lviv", "Warsaw"];
 console.log(cities.join(" * "));
 
 //task 5 ************************************************************************************************************
+//oh I lost this one somehow :o
+
+//task 6 ************************************************************************************************************
 
 let dimA = parseFloat(prompt("Enter first valid dimension of the triangle: "));
 let dimB = parseFloat(prompt("Enter second valid dimension of the triangle: "));
 let dimC = parseFloat(prompt("Enter third valid dimension of the triangle: "));
 
 //check if data is valid
-if(dimA <= 0 || dimB <= 0 || dimC <= 0){
+if(dimA > 0 || dimB > 0 || dimC > 0){
     alert("The value must be > 0")
 }else if(dimA + dimB < dimC || dimB + dimC < dimA || dimC + dimA < dimB){
     alert("incorrect values")
